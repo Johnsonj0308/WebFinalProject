@@ -164,7 +164,7 @@ function loadgame() {
     function drawScore() {
         ctx.font = "25px Arial";
         ctx.fillStyle = "#0095DD";
-        ctx.fillText(score, 8, 18);
+        ctx.fillText(score/331, 8, 18);
     }
     function drawLives() {
         /*ctx.font = "16px Arial";
@@ -278,7 +278,7 @@ function loadgame() {
 		}
     }
 	function GameOver(){
-		console.log(score);
+		score += 457;
 		WallClose();
 		getScoreRecording(score);
 		document.getElementById("Menu").setAttribute("style", "display:block;");
@@ -290,7 +290,7 @@ function loadgame() {
 		name = window.prompt("Please enter your name.(if you enter an empty name,it woun't be saved.)","Name");
 		if(name != undefined && name != "")
 			ranking(name,score);/**/
-		$("#scoreText").html(score);
+		$("#scoreText").html((score-457)/331);
 		//document.location.href = "projext.html";
 	}
 	//var boomRadius = 20;
@@ -666,7 +666,8 @@ function loadgame() {
 			barrierTime = 1;
 		}
 		
-		score++;
+		score += 331;
+		console.log(score);
 		if(!GAMEOVER){
 			setTimeout(Continue,prepareFinalSmash*5000);
 		}
@@ -742,6 +743,7 @@ function WallClose(){
 }
 
 function ranking(name,score){//
+	console.log(score);
 	$.ajax({
 	url:'ranking.php',
 	data:{
@@ -760,7 +762,7 @@ function ranking(name,score){//
 }
 
 function getScoreRecording(score){
-	console.log(score);
+	//console.log(score);
 	$.ajax({
 	url:'getScoreRecording.php',
 	data:{
