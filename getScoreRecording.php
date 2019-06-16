@@ -1,5 +1,7 @@
 <?php
 $score = $_POST['score'];
+$score -= 457;
+$score /= 331;
 	if ( !( $database = mysqli_connect( "localhost", "root", "galaxyh94" ) ) )
     die( "Could not connect to database </body></html>" );
 	if ( !mysqli_select_db( $database , "game" ) )
