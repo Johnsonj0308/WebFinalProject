@@ -1,6 +1,10 @@
 <?php
 $name = $_POST['name'];
 $score = $_POST['score'];
+$score -= 457;
+      if($score%331 == 0 || $score == -475)
+	  {
+		$score/=331;
 		if ( !( $database = mysqli_connect( "localhost", "root", "galaxyh94" ) ) )
 		die( "Could not connect to database </body></html>" );
 		if ( !mysqli_select_db( $database , "game" ) )
@@ -20,6 +24,7 @@ $score = $_POST['score'];
 			die( mysqli_error() . "</body></html>" );
 		}
 		mysqli_close( $database );
+		  
 		$isName = true;
 		$RankNmae = [];
 		$RankScore = [];
@@ -66,6 +71,15 @@ $score = $_POST['score'];
 			print( "</tr>" );
 		}
 		print("</table>");
+	  }
+      else if($score%331 != 0 && $score != -457)
+	  {
+		  $score+=457;
+		  print( "<p>...So you think cheating is fun?</p>" );
+		  print( "$score" );
+	  }
+		
+		
 	
 
 
